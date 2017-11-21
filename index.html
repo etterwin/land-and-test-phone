@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iPhone X</title>
+    <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet" type="text/css">
+
+
+    <script src="js/timer.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/mootools-core-1.4.5-full-compat-yc.js"></script>
+    <script language="javascript" type="text/javascript" src="js/script.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <div class="gridContainer clearfix">
+
+        <div id="page_prize" class="hidden"></div>
+
+        <div class="product" >
+            <img id="img_prize" alt="prize" src="assets/images/prize.html"/>
+        </div>
+
+        <div id="question">
+
+        <h2>Beantwoord de volgende drie vragen en win de nieuwe iPhone X!</h2>
+
+        <div id="questionfield">
+
+          <div class="outquestionblock">
+
+            <div id="questions">
+
+              <h4 id="question_headline"> Vraag
+                  <span id="min_number">1</span>/<span id="max_number">3</span>
+              </h4>
+
+              <div id="question_0">
+
+                <h3>Bent u...?</h3>
+
+                <div class="answers">
+
+                  <a class="button" id="button_1">Een man</a>
+                  <a class="button" id="button_2">Een vrouw</a>
+
+                </div>
+
+              </div>
+
+              <div id="question_1" class="questionblock">
+
+                <h3>Hoe oud bent u?</h3>
+
+                <div class="answers">
+
+                  <a class="button" id="button_3">18-29</a>
+                  <a class="button" id="button_4">30-39</a>
+                  <a class="button" id="button_5">40-49</a>
+                  <a class="button" id="button_6">50+</a>
+
+                </div>
+              </div>
+
+              <div id="question_2" class="questionblock">
+
+                <h3>Koopt u weleens producten online?</h3>
+
+                <div class="answers">
+
+                  <a class="button" id="button_7">Ja</a>
+                  <a class="button" id="button_8">Nee</a>
+
+                </div>
+              </div>
+
+            </div>
+
+              <div id="page_prozess" class="hidden" >
+
+                  <div class="prozess"  style="height:120px;">
+
+                    <h3 id="prozess_status_1" class="prozess_status"> Uw antwoorden worden verstuurd... </h3>
+                    <h3 id="prozess_status_2" class="prozess_status hidden"> Gefeliciteerd...u bent door naar de finale ! </h3>
+                    <h3 id="prozess_status_3" class="prozess_status hidden"> Bevestig uw gegevens om uw winkans te vergroten
+                        <br /><small>Hartelijk dank en veel succes! </small>
+                    </h3>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+          <footer id="footer" class="clearfix">
+
+            <div id="countdown_wrapper">
+                Resterende tijd
+                <span id="hour" style="color:#e90004;">03</span>
+                <span style="color:#e90004;">:</span>
+                <span id="min" style="color:#e90004;">55</span>
+                om mee te doen
+            </div>
+
+          </footer>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    <script src="js/timer.js"></script>
+    <script type="text/javascript">
+        var get_url_parameters = function(target_id){
+            if(window.location.search && ( $(target_id) || $$("."+target_id).length > 0 )){
+                var para = window.location.search;
+                if(window.location.search[0] == "?"){
+                    para = para.substring(1,para.lenght);
+                }
+                if($$("."+target_id).length > 0){
+                    $$("."+target_id).each(function(elment,index){
+                        var href = $$("."+target_id)[index].href;
+                        if(href.test(/\?$/) == true || href.test(/&$/) == true){
+                            href = href+para;
+                        }else if(href.test(/\/$/) == true){
+                            href = href+"?"+para;
+                        }else{
+                            href = href+"&"+para;
+                        }
+                        $$("."+target_id)[index].href = href;
+                    });
+                }
+                if($(target_id)){
+                    var href = $(target_id).href;
+                    if(href.test(/\?$/) == true || href.test(/&$/) == true){
+                        href = href+para;
+                    }else if(href.test(/\/$/) == true){
+                        href = href+"?"+para;
+                    }else{
+                        href = href+"&"+para;
+                    }
+                    $(target_id).href = href;
+                }
+
+            }
+        }
+        window.addEvent("domready", function() {
+            get_url_parameters("target_link");
+        });
+    </script>
+    <script src="js/questions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+</body>
+</html>
